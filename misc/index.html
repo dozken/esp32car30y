@@ -2,14 +2,12 @@
 <html lang="en">
 
 <head>
-<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">-->
     <style>
-        @media only screen and (max-width: 800px) {
+        @media only screen and (max-width: 1000px) {
             .wrapper {
                 padding-top: 30%;
             }
         }
-
         .wrapper {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -19,75 +17,37 @@
             padding: 100px;
             margin: 5%;
             font-size: 60px;
+            min-height: 300px;
+            min-width: 300px;
         }
-
-        #stop {
-            background-color: grey;
-            color: white;
-        }
-
-        .material-icons {
-            font-size: 100px;
-        }
-
-        .extra {
-            background-color: lightgray;
-        }
-
-        .mirror {
-            transform: scaleY(-1);
+        .control:focus {
+            background-color:yellow;
         }
     </style>
 </head>
 
 <body>
 <div class="wrapper">
-<!--    <button class="control extra" onclick="actionRequest('forward_left')">-->
-<!--        <i class="material-icons">rotate_left</i>-->
-<!--    </button>-->
     <div></div>
     <button class="control" onclick="actionRequest('forward')">
-<!--        <i class="material-icons">arrow_upward</i>-->
         ^
     </button>
     <div></div>
-<!--    <button class="control extra" onclick="actionRequest('forward_right')">-->
-<!--        <i class="material-icons">rotate_right</i>-->
-<!--    </button>-->
 
     <button class="control" onclick="actionRequest('left')">
-<!--        <i class="material-icons">arrow_back</i>-->
-<
+        <
     </button>
     <button id="stop" class="control" onclick="actionRequest('stop')">
-<!--        <i class="material-icons">close</i>-->
-        STOP
+        X
     </button>
     <button class="control" onclick="actionRequest('right')">
-<!--        <i class="material-icons">arrow_forward</i>-->
         >
     </button>
 
     <div></div>
-<!--    <button class="control extra" onclick="actionRequest('backward_left')">-->
-<!--        <i class="material-icons mirror">rotate_left</i>-->
-<!--    </button>-->
     <button class="control" onclick="actionRequest('backward')">
-<!--        <i class="material-icons">arrow_downward</i>-->
         v
     </button>
-    <div></div>
-<!--    <button class="control extra" onclick="actionRequest('backward_right')">-->
-<!--        <i class="material-icons mirror">rotate_right</i>-->
-<!--    </button>-->
-
-
-    <div></div>
-    <div>
-<!--        <button class="control extra" onclick="actionRequest('sound')">-->
-<!--            <i class="material-icons mirror">campaign</i>-->
-<!--        </button>-->
-    </div>
     <div></div>
 </div>
 
