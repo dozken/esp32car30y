@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        @media only screen and (max-width: 800px) {
+            .wrapper {
+                padding-top: 30%;
+            }
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .control {
+            padding: 100px;
+            margin: 5%;
+        }
+
+        #stop {
+            background-color: grey;
+            color: white;
+        }
+
+        .material-icons {
+            font-size: 100px;
+        }
+
+        .extra {
+            background-color: lightgray;
+        }
+
+        .mirror {
+            transform: scaleY(-1);
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+    <button class="control extra" onclick="actionRequest('forward_left')">
+        <i class="material-icons">rotate_left</i>
+    </button>
+    <button class="control" onclick="actionRequest('forward')">
+        <i class="material-icons">arrow_upward</i>
+    </button>
+    <button class="control extra" onclick="actionRequest('forward_right')">
+        <i class="material-icons">rotate_right</i>
+    </button>
+
+    <button class="control" onclick="actionRequest('left')">
+        <i class="material-icons">arrow_back</i>
+
+    </button>
+    <button id="stop" class="control" onclick="actionRequest('stop')">
+        <i class="material-icons">close</i>
+    </button>
+    <button class="control" onclick="actionRequest('right')">
+        <i class="material-icons">arrow_forward</i>
+    </button>
+
+    <button class="control extra" onclick="actionRequest('backward_left')">
+        <i class="material-icons mirror">rotate_left</i>
+    </button>
+    <button class="control" onclick="actionRequest('backward')">
+        <i class="material-icons">arrow_downward</i>
+    </button>
+    <button class="control extra" onclick="actionRequest('backward_right')">
+        <i class="material-icons mirror">rotate_right</i>
+    </button>
+</div>
+
+<script>
+    const request = new XMLHttpRequest();
+    const baseUrl = 'http://192.168.4.1';
+
+    function actionRequest(path) {
+        console.log("GET", `${baseUrl}/${path}`);
+
+        request.open("GET", `${baseUrl}/${path}`);
+        request.send();
+
+        console.log('Going:', path);
+    }
+</script>
+</body>
+
+</html>
